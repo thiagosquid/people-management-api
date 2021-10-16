@@ -2,6 +2,7 @@ package com.thiago.personapi.controllers;
 
 
 import com.thiago.personapi.dto.request.PersonDTO;
+import com.thiago.personapi.dto.response.MessageResponseDTO;
 import com.thiago.personapi.entities.Person;
 import com.thiago.personapi.repositories.PersonRepository;
 import com.thiago.personapi.services.PersonService;
@@ -21,13 +22,13 @@ public class PersonController {
     private final PersonService personService;
 
     @GetMapping
-    public List<Person> findAll(){
+    public List<PersonDTO> findAll(){
         return personService.listAll();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Person createPerson(@RequestBody @Valid PersonDTO personDTO){
+    public MessageResponseDTO createPerson(@RequestBody @Valid PersonDTO personDTO){
 
         return personService.create(personDTO);
     }
