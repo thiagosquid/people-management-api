@@ -9,8 +9,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Builder
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Phone extends Person {
