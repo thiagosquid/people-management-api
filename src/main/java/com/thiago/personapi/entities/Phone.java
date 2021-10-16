@@ -11,6 +11,7 @@ import javax.persistence.*;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class Phone extends Person {
 
     @Id

@@ -3,6 +3,7 @@ package com.thiago.personapi.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -14,6 +15,8 @@ import java.util.List;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
+@Builder
 public class Person {
 
     @Id
