@@ -1,6 +1,7 @@
 package com.thiago.personapi.controllers;
 
 
+import com.thiago.personapi.dto.request.PersonDTO;
 import com.thiago.personapi.entities.Person;
 import com.thiago.personapi.repositories.PersonRepository;
 import com.thiago.personapi.services.PersonService;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -25,8 +27,9 @@ public class PersonController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Person createPerson(@RequestBody Person person){
-        return personService.save(person);
+    public Person createPerson(@RequestBody @Valid PersonDTO personDTO){
+
+        return personService.create(personDTO);
     }
 
 

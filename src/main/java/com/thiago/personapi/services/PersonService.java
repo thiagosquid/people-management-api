@@ -1,5 +1,7 @@
 package com.thiago.personapi.services;
 
+import com.thiago.personapi.dto.mapper.PersonMapper;
+import com.thiago.personapi.dto.request.PersonDTO;
 import com.thiago.personapi.entities.Person;
 import com.thiago.personapi.repositories.PersonRepository;
 import lombok.AllArgsConstructor;
@@ -14,6 +16,8 @@ public class PersonService {
 
     private final PersonRepository personRepository;
 
+    private final PersonMapper personMapper;
+
     public List<Person> listAll(){
         List<Person> allPeople;
 
@@ -22,7 +26,8 @@ public class PersonService {
         return allPeople;
     }
 
-    public Person save(Person person) {
+    public Person create(PersonDTO personDTO) {
+        Person person = personMapper.toModel(personDTO);
         return personRepository.save(person);
     }
 }
